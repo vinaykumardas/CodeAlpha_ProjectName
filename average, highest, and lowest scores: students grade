@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class StudentGradeManager {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> grades = new ArrayList<>();
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        int total = 0;
+        int highest = Integer.MIN_VALUE;
+        int lowest = Integer.MAX_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nEnter student name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter score: ");
+            int score = sc.nextInt();
+            sc.nextLine();
+
+            names.add(name);
+            grades.add(score);
+
+            total += score;
+
+            if (score > highest)
+                highest = score;
+
+            if (score < lowest)
+                lowest = score;
+        }
+
+        double average = (double) total / n;
+
+        System.out.println("\n----- Student Grades Report -----");
+        for (int i = 0; i < n; i++) {
+            System.out.println(names.get(i) + " : " + grades.get(i));
+        }
+
+        System.out.println("\nAverage Score = " + average);
+        System.out.println("Highest Score = " + highest);
+        System.out.println("Lowest Score = " + lowest);
+
+        sc.close();
+    }
+}
