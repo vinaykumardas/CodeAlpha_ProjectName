@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+public class StudentGrades {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> grades = new ArrayList<>();
+
+        grades.add(80);
+        grades.add(75);
+        grades.add(90);
+        grades.add(65);
+        grades.add(85);
+
+        int sum = 0;
+        int highest = grades.get(0);
+        int lowest = grades.get(0);
+
+        for (int grade : grades) {
+            sum += grade;
+
+            if (grade > highest)
+                highest = grade;
+
+            if (grade < lowest)
+                lowest = grade;
+        }
+
+        double average = (double) sum / grades.size();
+
+        System.out.println("Average = " + average);
+        System.out.println("Highest = " + highest);
+        System.out.println("Lowest = " + lowest);
+    }
+}
